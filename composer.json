@@ -1,6 +1,6 @@
 {
     "name": "azmolla/transaction-middleware",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A Laravel middleware package that wraps DELETE requests in a DB transaction.",
     "keywords": ["laravel", "transaction", "middleware", "database", "database-transaction"],
     "homepage": "https://github.com/AbiruzzamanMolla/transaction-middleware-laravel",

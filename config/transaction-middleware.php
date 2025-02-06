@@ -12,7 +12,7 @@ return [
     | attach the middleware (for example, using the 'transaction' alias).
     |
      */
-    'auto_apply_web_api' => false,
-    'auto_apply_web'     => false,
-    'auto_apply_api'     => false,
+    'auto_apply_global' => false,
+    'auto_apply_web'    => false,
+    'auto_apply_api'    => false,
 ];

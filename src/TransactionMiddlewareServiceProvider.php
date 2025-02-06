@@ -2,6 +2,7 @@
 
 namespace Azmolla\TransactionMiddleware;
 
+use Illuminate\Contracts\Http\Kernel as HttpKernel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -42,10 +43,10 @@ class TransactionMiddlewareServiceProvider extends ServiceProvider
         $router->aliasMiddleware('transaction', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
 
         // Check if the configuration is set to auto-apply.
-        if (config('transaction-middleware.auto_apply_web_api')) {
-            // Automatically push the middleware to both 'web' and 'api' groups.
-            $router->pushMiddlewareToGroup('web', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
-            $router->pushMiddlewareToGroup('api', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
+        if (config('transaction-middleware.auto_apply_global')) {
+            // Automatically push the middleware to the global middleware stack.
+            $this->app->make(HttpKernel::class)
+                ->pushMiddleware(\Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
         } elseif (config('transaction-middleware.auto_apply_web')) {
             // Automatically push the middleware to the 'web' group.
             $router->pushMiddlewareToGroup('web', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);

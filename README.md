@@ -5,7 +5,7 @@
 
 Transaction Middleware for Laravel is a simple package that provides a middleware to wrap DELETE requests in a database transaction. This means that if an error occurs during a DELETE request, any database changes will be rolled back automatically, ensuring data integrity.
 
-**Version:** 1.0.0
+**Version:** 1.0.4
 
 ---
 
@@ -16,7 +16,7 @@ Transaction Middleware for Laravel is a simple package that provides a middlewar
 
 - **Flexible Auto-application:**
   Control how the middleware is applied via configuration:
-  - `auto_apply_web_api` — Apply automatically to both **web** and **api** middleware groups.
+  - `auto_apply_global` — Apply automatically to global middleware.
   - `auto_apply_web` — Apply automatically to the **web** group only.
   - `auto_apply_api` — Apply automatically to the **api** group only.
 
@@ -75,7 +75,7 @@ return [
     | - 'auto_apply_api': If true (and neither of the above are true), it will be added to the 'api' group only.
     |
     */
-    'auto_apply_web_api' => false,
+    'auto_apply_global' => false,
     'auto_apply_web'     => false,
     'auto_apply_api'     => false,
 ];
@@ -103,7 +103,7 @@ After publishing the config file, edit it as needed:
 - To add the middleware to both groups:
 
   ```php
-  'auto_apply_web_api' => true,
+  'auto_apply_global' => true,
   'auto_apply_web'     => false,
   'auto_apply_api'     => false,
   ```
@@ -111,7 +111,7 @@ After publishing the config file, edit it as needed:
 - To add it only to the web group:
 
   ```php
-  'auto_apply_web_api' => false,
+  'auto_apply_global' => false,
   'auto_apply_web'     => true,
   'auto_apply_api'     => false,
   ```
@@ -119,7 +119,7 @@ After publishing the config file, edit it as needed:
 - To add it only to the API group:
 
   ```php
-  'auto_apply_web_api' => false,
+  'auto_apply_global' => false,
   'auto_apply_web'     => false,
   'auto_apply_api'     => true,
   ```
@@ -163,6 +163,9 @@ This package is open-sourced software licensed under the [MIT license](LICENSE).
 ---
 
 ## Changelog
+
+**Version 1.0.4**
+- update 'auto_apply_web_api' to 'auto_apply_global'
 
 **Version 1.0.3**
 - update readme.md
