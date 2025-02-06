@@ -36,7 +36,7 @@ class TransactionMiddlewareServiceProvider extends ServiceProvider
         // Publish the config file so users can override package defaults.
         $this->publishes([
             __DIR__ . '/../config/transaction-middleware.php' => config_path('transaction-middleware.php'),
-        ], 'config');
+        ], 'transaction-middleware-config');
 
         // Always register the alias for manual usage.
         $router->aliasMiddleware('transaction', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
