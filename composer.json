@@ -1,5 +1,6 @@
 {
     "name": "azmolla/transaction-middleware",
+    "version": "1.0.0",
     "description": "A Laravel middleware package that wraps DELETE requests in a DB transaction.",
     "type": "library",
     "license": "MIT",
