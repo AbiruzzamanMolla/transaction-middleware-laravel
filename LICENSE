@@ -1,0 +1,13 @@
+
+Feel free to add more details as you see fit!
+
+---
+
+## 7. Publishing to GitHub
+
+1. **Initialize a Git repository:**  
+   From the root of your package directory, run:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit of transaction middleware package"

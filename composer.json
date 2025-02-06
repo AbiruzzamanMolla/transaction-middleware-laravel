@@ -1,0 +1,32 @@
+{
+    "name": "azmolla/transaction-middleware",
+    "description": "A Laravel middleware package that wraps DELETE requests in a DB transaction.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abiruzzaman Molla",
+            "email": "abiruzzaman.molla@gmail.com",
+            "role": "Backend Developer",
+            "homepage": "https://www.linkedin.com/in/abiruzzamanmolla/"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "azmolla\\TransactionMiddleware\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "azmolla\\TransactionMiddleware\\TransactionMiddlewareServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
