@@ -1,7 +1,9 @@
 {
     "name": "azmolla/transaction-middleware",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A Laravel middleware package that wraps DELETE requests in a DB transaction.",
+    "keywords": ["laravel", "transaction", "middleware", "php-cart", "php-laravel-cart", "az-lara-cart"],
+    "homepage": "https://github.com/AbiruzzamanMolla/transaction-middleware-laravel",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -18,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "azmolla\\TransactionMiddleware\\": "src/"
+            "Azmolla\\TransactionMiddleware\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "azmolla\\TransactionMiddleware\\TransactionMiddlewareServiceProvider"
+                "Azmolla\\TransactionMiddleware\\TransactionMiddlewareServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace azmolla\TransactionMiddleware;
+namespace Azmolla\TransactionMiddleware;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -39,19 +39,19 @@ class TransactionMiddlewareServiceProvider extends ServiceProvider
         ], 'config');
 
         // Always register the alias for manual usage.
-        $router->aliasMiddleware('transaction', \azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
+        $router->aliasMiddleware('transaction', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
 
         // Check if the configuration is set to auto-apply.
         if (config('transaction-middleware.auto_apply_web_api')) {
             // Automatically push the middleware to both 'web' and 'api' groups.
-            $router->pushMiddlewareToGroup('web', \azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
-            $router->pushMiddlewareToGroup('api', \azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
+            $router->pushMiddlewareToGroup('web', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
+            $router->pushMiddlewareToGroup('api', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
         } elseif (config('transaction-middleware.auto_apply_web')) {
             // Automatically push the middleware to the 'web' group.
-            $router->pushMiddlewareToGroup('web', \azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
+            $router->pushMiddlewareToGroup('web', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
         } elseif (config('transaction-middleware.auto_apply_api')) {
             // Automatically push the middleware to the 'api' group.
-            $router->pushMiddlewareToGroup('api', \azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
+            $router->pushMiddlewareToGroup('api', \Azmolla\TransactionMiddleware\Middleware\TransactionMiddleware::class);
         }
     }
 }

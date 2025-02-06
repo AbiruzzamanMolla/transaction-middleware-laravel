@@ -1,6 +1,6 @@
 <?php
 
-namespace azmolla\TransactionMiddleware\Middleware;
+namespace Azmolla\TransactionMiddleware\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

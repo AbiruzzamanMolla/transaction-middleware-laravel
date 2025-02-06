@@ -1,6 +1,6 @@
 # Transaction Middleware for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/azmolla/transaction-middleware.svg?style=flat-square)](https://packagist.org/packages/azmolla/transaction-middleware)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Azmolla/transaction-middleware.svg?style=flat-square)](https://packagist.org/packages/Azmolla/transaction-middleware)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Transaction Middleware for Laravel is a simple package that provides a middleware to wrap DELETE requests in a database transaction. This means that if an error occurs during a DELETE request, any database changes will be rolled back automatically, ensuring data integrity.
@@ -40,7 +40,7 @@ Transaction Middleware for Laravel is a simple package that provides a middlewar
 Install via Composer:
 
 ```bash
-composer require azmolla/transaction-middleware
+composer require Azmolla/transaction-middleware
 ```
 
 Laravel will automatically discover the service provider. If you need to publish the configuration file, run:
@@ -171,4 +171,4 @@ This package is open-sourced software licensed under the [MIT license](LICENSE).
 
 ---
 
-Happy coding and thanks for using Transaction Middleware for Laravel! If you have questions or run into issues, feel free to open an issue on [GitHub](https://github.com/azmolla/transaction-middleware).
+Happy coding and thanks for using Transaction Middleware for Laravel! If you have questions or run into issues, feel free to open an issue on [GitHub](https://github.com/Azmolla/transaction-middleware).
