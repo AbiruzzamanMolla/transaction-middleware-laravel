@@ -5,7 +5,7 @@
 
 Transaction Middleware for Laravel is a simple package that provides a middleware to wrap DELETE requests in a database transaction. This means that if an error occurs during a DELETE request, any database changes will be rolled back automatically, ensuring data integrity.
 
-**Version:** 1.0.4
+**Version:** 1.0.5
 
 ---
 
@@ -61,20 +61,6 @@ The published config file (`config/transaction-middleware.php`) looks like this:
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Auto-apply Middleware Settings
-    |--------------------------------------------------------------------------
-    |
-    | These settings control whether the Transaction Middleware is automatically
-    | pushed to Laravel's middleware groups.
-    |
-    | - 'auto_apply_web_api': If true, the middleware will be added to both 'web' and 'api'.
-    | - 'auto_apply_web': If true (and the above is false), it will be added to the 'web' group only.
-    | - 'auto_apply_api': If true (and neither of the above are true), it will be added to the 'api' group only.
-    |
-    */
     'auto_apply_global' => false,
     'auto_apply_web'     => false,
     'auto_apply_api'     => false,
@@ -137,6 +123,42 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])
 
 ---
 
+### 3. Transaction Trait
+
+The easiest will be to use the `\Azmolla\TransactionMiddleware\Traits\HasTransactionCalls` trait which adds a `transaction()` method.
+
+```php
+use Azmolla\TransactionMiddleware\Traits\HasTransactionalCalls;
+
+class MyModel
+{
+    use HasTransactionalCalls;
+}
+```
+
+#### Transaction chained Method
+
+You can call the `transaction()` without any argument and the method after will be called in a transaction.
+
+This example will call the `delete()` method in a transaction.
+This is useful if you have any listeners also running database queries, like deleting child models.
+The transaction will prevent you from corrupted data if any of the queries fails.
+
+```php
+$model->transaction()->delete();
+```
+
+#### Conditional Callback
+
+If you want you can also pass a callback to the `transaction()` method you will get the calling object as first argument.
+
+```php
+$model->transaction(function(Model $model) {
+    $model->update();
+    $model->child->update();
+});
+```
+
 ## How It Works Under the Hood
 
 - **Middleware Logic:**
@@ -147,6 +169,9 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])
 
 - **Laravel Auto-discovery:**
   Thanks to the `extra` block in the composer.json, Laravel auto-discovers and registers the service provider, so there’s no manual configuration required in `config/app.php`.
+
+- **Trait Usage:**
+  You can use the `\Azmolla\TransactionMiddleware\Traits\HasTransactionCalls` trait to add a `transaction()` method to your models.
 
 ---
 
@@ -163,6 +188,9 @@ This package is open-sourced software licensed under the [MIT license](LICENSE).
 ---
 
 ## Changelog
+
+**Version 1.0.5**
+- Add a trait and class to call methods in a database transaction.
 
 **Version 1.0.4**
 - update 'auto_apply_web_api' to 'auto_apply_global'
