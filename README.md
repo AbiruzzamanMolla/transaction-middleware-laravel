@@ -164,6 +164,10 @@ This package is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Changelog
 
+**Version 1.0.3**
+- update readme.md
+- update composer.json
+
 **Version 1.0.2**
 - update readme.md
 
