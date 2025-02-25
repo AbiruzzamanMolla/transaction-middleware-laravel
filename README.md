@@ -189,6 +189,9 @@ This package is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Changelog
 
+**Version 1.0.6**
+- Support for Laravel ^12
+
 **Version 1.0.5**
 - Add a trait and class to call methods in a database transaction.
 
