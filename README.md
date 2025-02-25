@@ -5,7 +5,7 @@
 
 Transaction Middleware for Laravel is a simple package that provides a middleware to wrap DELETE requests in a database transaction. This means that if an error occurs during a DELETE request, any database changes will be rolled back automatically, ensuring data integrity.
 
-**Version:** 1.0.5
+**Version:** 1.0.6
 
 ---
 
@@ -31,7 +31,7 @@ Transaction Middleware for Laravel is a simple package that provides a middlewar
 ## Requirements
 
 - PHP ^8.0
-- Laravel 9.x, 10.x, or 11.x (or higher)
+- Laravel 9.x, 10.x, 11.x or 12.x (or higher)
 
 ---
 
